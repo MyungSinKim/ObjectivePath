@@ -13,12 +13,12 @@ Components
     {<predicate>} - NSPredicate
     %@ - key/index/predicate/block passed as parameter
     r"<pattern>" - regex
-    %^ - block (use same block signature as predicate blocks)
+    %^ - block (use same block signature as predicate blocks) (veto-ed just use %@)
 
-* Optional: Foo.#0 can be expressed as foo#0
+* Optional: Foo.#0 can be expressed as foo#0 (veto-ed bad idea)
 * Compile into an executable object: CObjectPath
 * Could use blocks internally?
 * Good error reporting
 * Use valueForKey: where appropriate
-* Keys can be any kind of object. Index sets, and sets are treated special
+* Keys can be any kind of object. Index sets, and sets may be treated differently - outputting arrays instead of single values.
 * How do we treat index sets & sets as non special?
