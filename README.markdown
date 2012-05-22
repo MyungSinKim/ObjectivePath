@@ -1,10 +1,12 @@
-# CObjectPath
+# Objective Path
 
-More fiddly key value paths.
+## Overview
+
+Even more fiddly key value paths.
 
     Foo.bar.#0.(foo,bar).{predicate}.%@."foo".'bar'.(#0-#100).%^.r".*"
 
-Components
+## Components
 
     Foo or "foo" or 'foo' - key lookup
     #0 - index lookup
@@ -22,3 +24,9 @@ Components
 * Use valueForKey: where appropriate
 * Keys can be any kind of object. Index sets, and sets may be treated differently - outputting arrays instead of single values.
 * How do we treat index sets & sets as non special?
+
+## Recursion
+
+    "...foo" - look for any key matching "foo"
+    "...(foo,bar)"
+
