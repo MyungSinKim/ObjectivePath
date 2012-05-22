@@ -8,15 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-int main(int argc, const char * argv[])
-{
+#import "CObjectPath.h"
 
-    @autoreleasepool {
-        
-        // insert code here...
-        NSLog(@"Hello, World!");
-        
+int main(int argc, const char * argv[])
+    {
+    @autoreleasepool
+        {
+        NSDictionary *theDictionary = @{ @"A" : @{ @"B" : @[@"C", @"D"] } };
+        CObjectPath *thePath = [CObjectPath objectPathWithFormat:@"A.B.(0,1)" argumentArray:NULL];
+        id theResult = [thePath evaluateObject:theDictionary];
+        NSLog(@"%@", theResult);
+        }
+    return(0);
     }
-    return 0;
-}
 

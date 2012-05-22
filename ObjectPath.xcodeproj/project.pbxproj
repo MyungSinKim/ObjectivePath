@@ -10,6 +10,9 @@
 		457142B7156ADFAC00B56868 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 457142B6156ADFAC00B56868 /* Foundation.framework */; };
 		457142BA156ADFAC00B56868 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 457142B9156ADFAC00B56868 /* main.m */; };
 		457142BE156ADFAC00B56868 /* ObjectPath.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 457142BD156ADFAC00B56868 /* ObjectPath.1 */; };
+		457142C6156ADFB700B56868 /* CObjectPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 457142C5156ADFB700B56868 /* CObjectPath.m */; };
+		4598006D156B0E3600FF1760 /* NSScanner+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4598006C156B0E3600FF1760 /* NSScanner+Extensions.m */; };
+		45F1362E156C06D200E87047 /* NSIndexSet+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F1362D156C06D200E87047 /* NSIndexSet+Extensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,8 +32,14 @@
 		457142B2156ADFAC00B56868 /* ObjectPath */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ObjectPath; sourceTree = BUILT_PRODUCTS_DIR; };
 		457142B6156ADFAC00B56868 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		457142B9156ADFAC00B56868 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		457142BC156ADFAC00B56868 /* ObjectPath-Prefix.pch */ = {isa = PBXFileReference; path = "ObjectPath-Prefix.pch"; sourceTree = "<group>"; };
+		457142BC156ADFAC00B56868 /* ObjectPath-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjectPath-Prefix.pch"; sourceTree = "<group>"; };
 		457142BD156ADFAC00B56868 /* ObjectPath.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ObjectPath.1; sourceTree = "<group>"; };
+		457142C4156ADFB700B56868 /* CObjectPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CObjectPath.h; sourceTree = "<group>"; };
+		457142C5156ADFB700B56868 /* CObjectPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CObjectPath.m; sourceTree = "<group>"; };
+		4598006B156B0E3600FF1760 /* NSScanner+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSScanner+Extensions.h"; sourceTree = "<group>"; };
+		4598006C156B0E3600FF1760 /* NSScanner+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSScanner+Extensions.m"; sourceTree = "<group>"; };
+		45F1362C156C06D200E87047 /* NSIndexSet+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+Extensions.h"; sourceTree = "<group>"; };
+		45F1362D156C06D200E87047 /* NSIndexSet+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexSet+Extensions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +57,8 @@
 		457142A7156ADFAC00B56868 = {
 			isa = PBXGroup;
 			children = (
+				4598006B156B0E3600FF1760 /* NSScanner+Extensions.h */,
+				4598006C156B0E3600FF1760 /* NSScanner+Extensions.m */,
 				457142B8156ADFAC00B56868 /* ObjectPath */,
 				457142B5156ADFAC00B56868 /* Frameworks */,
 				457142B3156ADFAC00B56868 /* Products */,
@@ -74,6 +85,10 @@
 			isa = PBXGroup;
 			children = (
 				457142B9156ADFAC00B56868 /* main.m */,
+				457142C4156ADFB700B56868 /* CObjectPath.h */,
+				457142C5156ADFB700B56868 /* CObjectPath.m */,
+				45F1362C156C06D200E87047 /* NSIndexSet+Extensions.h */,
+				45F1362D156C06D200E87047 /* NSIndexSet+Extensions.m */,
 				457142BD156ADFAC00B56868 /* ObjectPath.1 */,
 				457142BB156ADFAC00B56868 /* Supporting Files */,
 			);
@@ -140,6 +155,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				457142BA156ADFAC00B56868 /* main.m in Sources */,
+				457142C6156ADFB700B56868 /* CObjectPath.m in Sources */,
+				4598006D156B0E3600FF1760 /* NSScanner+Extensions.m in Sources */,
+				45F1362E156C06D200E87047 /* NSIndexSet+Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +188,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -191,6 +210,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -232,6 +252,7 @@
 				457142C3156ADFAC00B56868 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
