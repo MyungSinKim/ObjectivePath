@@ -13,9 +13,9 @@ Components
     {<predicate>} - NSPredicate
     %@ - key/index/predicate/block passed as parameter
     r"<pattern>" - regex
-    %^ - block (use same block signature as predicate blocks) (veto-ed just use %@)
+    %^ - block (use same block signature as predicate blocks) (vetoed just use %@)
 
-* Optional: Foo.#0 can be expressed as foo#0 (veto-ed bad idea)
+* Optional: Foo.#0 can be expressed as foo#0 (vetoed bad idea)
 * Compile into an executable object: CObjectPath
 * Could use blocks internally?
 * Good error reporting
