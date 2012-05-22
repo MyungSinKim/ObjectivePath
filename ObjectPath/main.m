@@ -14,9 +14,12 @@ int main(int argc, const char * argv[])
     {
     @autoreleasepool
         {
-        NSDictionary *theDictionary = @{ @"A" : @{ @"B" : @[@"C", @"D"] } };
-        CObjectPath *thePath = [CObjectPath objectPathWithFormat:@"A.B.(0,1)" argumentArray:NULL];
-        id theResult = [thePath evaluateObject:theDictionary];
+        id theTestData = @[ @"A", @"B", @"C" ];
+        CObjectPath *thePath = [[CObjectPath alloc] initWithFormat:@"%@", [NSNumber numberWithInt:0]];
+        NSError *theError = NULL;
+        id theResult = [thePath evaluateObject:theTestData error:&theError];
+//        id theExpectedResult = @[@"a", @"c"];
+        NSLog(@"%@", theError);
         NSLog(@"%@", theResult);
         }
     return(0);

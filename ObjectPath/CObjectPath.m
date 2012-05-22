@@ -11,6 +11,8 @@
 #import "NSScanner+Extensions.h"
 #import "NSIndexSet+Extensions.h"
 
+NSString *const kObjectivePathErrorDomain = @"ObjectPathErrorDomain";
+
 typedef id (^Evaluator)(id value);
 
 @interface CObjectPath ()
@@ -23,21 +25,6 @@ typedef id (^Evaluator)(id value);
 
 @implementation CObjectPath
 
-+ (CObjectPath *)objectPathWithFormat:(NSString *)format argumentArray:(NSArray *)arguments
-    {
-    return([[self alloc] initWithFormat:format argumentArray:arguments]);
-    }
-
-//+ (CObjectPath *)objectPathWithFormat:(NSString *)format, ...
-//    {
-//    }
-
-//+ (CObjectPath *)objectPathWithFormat:(NSString *)format arguments:(va_list)argList
-//    {
-//    }
-
-#pragma mark -
-
 - (id)initWithFormat:(NSString *)format argumentArray:(NSArray *)arguments
     {
     if ((self = [super init]) != NULL)
@@ -48,24 +35,54 @@ typedef id (^Evaluator)(id value);
     return self;
     }
 
-#pragma mark -
-
-- (id)evaluateWithObject:(id)object error:(NSError **)outError
+- (id)initWithFormat:(NSString *)format, ...
     {
-    [self compile:NULL];
+    va_list theArguments;
+    va_start(theArguments, format);
 
-    return(NULL);
+    if ((self = [self initWithFormat:format arguments:theArguments]) != NULL)
+        {
+        }
+
+    va_end(theArguments);
+
+    return self;
+    }
+
+- (id)initWithFormat:(NSString *)format arguments:(va_list)argList
+    {
+    NSArray *theComponents = [[self class] componentsForPath:format error:NULL];
+    __block NSInteger theArgumentCount = 0;
+    [theComponents enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        if ([[obj objectAtIndex:0] isEqualToString:@"argument"])
+            {
+            ++theArgumentCount;
+            }
+        }];
+
+    NSMutableArray *theArguments = [NSMutableArray array];
+    for (NSUInteger N = 0; N != theArgumentCount; ++N)
+        {
+        id theArgument = va_arg(argList, id);
+        [theArguments addObject:theArgument];
+        }
+
+    if ((self = [self initWithFormat:format argumentArray:theArguments]) != NULL)
+        {
+        _components = theComponents;
+        }
+    return(self);
     }
 
 
-#pragma mark - 
+#pragma mark -
 
-- (BOOL)compile:(NSError **)outError
++ (NSArray *)componentsForPath:(NSString *)inPath error:(NSError **)outError
     {
     NSUInteger theArgumentIndex = 0;
     NSMutableArray *theComponents = [NSMutableArray array];
 
-    NSScanner *theScanner = [NSScanner scannerWithString:self.format];
+    NSScanner *theScanner = [NSScanner scannerWithString:inPath];
 
     NSString *theString = NULL;
 
@@ -73,9 +90,12 @@ typedef id (^Evaluator)(id value);
         {
         if ([theScanner scanString:@"%@" intoString:NULL] == YES)
             {
-            NSString *theKey = [self.arguments objectAtIndex:theArgumentIndex++];
-            [theComponents addObject:@[@"key", theKey]];
+            [theComponents addObject:@[@"argument", [NSNumber numberWithInteger:theArgumentIndex++]]];
             }
+//        else if ([theScanner scanString:@"%^" intoString:NULL] == YES)
+//            {
+//            [theComponents addObject:@[@"argument", [NSNumber numberWithInteger:theArgumentIndex++]]];
+//            }
         else if ([theScanner scanString:@"%%" intoString:NULL] == YES)
             {
             [theComponents addObject:@[@"key", @"%"]];
@@ -87,7 +107,7 @@ typedef id (^Evaluator)(id value);
             }
         else if ([theScanner scanStringDelimiteredByPrefix:@"(" suffix:@")" intoString:&theString] == YES)
             {
-            NSSet *theKeys = [NSSet setWithArray:[theString componentsSeparatedByString:@","]];
+            NSArray *theKeys = [theString componentsSeparatedByString:@","];
             [theComponents addObject:@[@"set", theKeys]];
             }
         else if ([theScanner scanQuotedStringIntoString:&theString] == YES)
@@ -111,13 +131,16 @@ typedef id (^Evaluator)(id value);
         [theScanner scanString:@"." intoString:NULL];
         }
 
-    self.components = theComponents;
+    return(theComponents);
+    }
 
-
+- (BOOL)compile:(NSError **)outError
+    {
+    self.components = [[self class] componentsForPath:self.format error:outError];
     return(YES);
     }
 
-- (id)evaluateObject:(id)inObject
+- (id)evaluateObject:(id)inObject error:(NSError **)outError
     {
     id theCurrentObject = inObject;
 
@@ -125,24 +148,48 @@ typedef id (^Evaluator)(id value);
 
     for (NSArray *theComponent in self.components)
         {
-        Evaluator theBlock = [self blockForObject:theCurrentObject component:theComponent];
+        Evaluator theBlock = [self blockForObject:theCurrentObject component:theComponent error:outError];
+        if (theBlock == NULL)
+            {
+            return(NULL);
+            }
         theCurrentObject = theBlock(theCurrentObject);
         }
     return(theCurrentObject);
-
     }
 
-- (Evaluator)blockForObject:(id)inObject component:(NSArray *)inComponent
+- (Evaluator)blockForObject:(id)inObject component:(NSArray *)inComponent error:(NSError **)outError
     {
     NSArray *theBlockRecipes = @[
-        @[ @"index", [NSArray class], [^(id component, id value) { return([value objectAtIndex:[component integerValue]]); } copy]],
-        @[ @"key", [NSDictionary class], [^(id component, id value) { return([value objectForKey:component]); } copy]],
-        @[ @"set", [NSArray class], [^(id component, id value) { return([value objectsAtIndexes:[NSIndexSet indexSetWithIndexesInSet:component]]); } copy]],
-        @[ @"predicate", [NSArray class], [^(id component, id value) { return([value filteredArrayUsingPredicate:component]); } copy]],
-        @[ @"key", [NSNull null], [^(id component, id value) { return([value filteredArrayUsingPredicate:component]); } copy]],
+        @[ @"index", [NSArray class], ^(id component, id value) { return([value objectAtIndex:[component integerValue]]); }],
+        @[ @"key", [NSArray class], ^(id component, id value) { return([value objectAtIndex:[component integerValue]]); }],
+        @[ @"key", [NSDictionary class], ^(id component, id value) { return([value objectForKey:component]); }],
+        @[ @"key", [NSNull null], ^(id component, id value) { return([value filteredArrayUsingPredicate:component]); }],
+        @[ @"set", [NSArray class], ^(id component, id value) { return([value objectsAtIndexes:[NSIndexSet indexSetWithIndexesInSet:[NSSet setWithArray:component]]]); }],
+        @[ @"set", [NSDictionary class], ^(id component, id value) { return([value objectsForKeys:component notFoundMarker:[NSNull null]]); }],
+        @[ @"predicate", [NSArray class], ^(id component, id value) { return([value filteredArrayUsingPredicate:component]); }],
         ];
 
     NSString *theComponentType = inComponent[0];
+    id theComponentValue = inComponent[1];
+    if ([theComponentType isEqualToString:@"argument"] == YES)
+        {
+        theComponentValue = [self.arguments objectAtIndex:[theComponentValue integerValue]];
+
+        if ([theComponentValue isKindOfClass:NSClassFromString(@"NSBlock")] == YES)
+            {
+            theComponentType = @"block";
+            }
+        else if ([theComponentValue isKindOfClass:[NSPredicate class]] == YES)
+            {
+            theComponentType = @"predicate";
+            }
+        else
+            {
+            theComponentType = @"key";
+            }
+        }
+
     id (^theBlock)(id component, id value) = NULL;
     for (NSArray *theRecipe in theBlockRecipes)
         {
@@ -155,9 +202,20 @@ typedef id (^Evaluator)(id value);
             }
         }
 
+    if (theBlock == NULL)
+        {
+        if (outError != NULL)
+            {
+            *outError = [NSError errorWithDomain:kObjectivePathErrorDomain code:kObjectivePathErrorCode_Unknown userInfo:NULL];
+            }
+        return(NULL);
+        }
+
     Evaluator theEvaluator = ^(id value)
         {
-        return(theBlock(inComponent[1], value));
+
+
+        return(theBlock(theComponentValue, value));
         };
 
     return(theEvaluator);

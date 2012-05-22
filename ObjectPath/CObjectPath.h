@@ -8,12 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString *const kObjectivePathErrorDomain;
+
+enum {
+    kObjectivePathErrorCode_Unknown = -1,
+} EObjectivePathErrorCode;
+
 @interface CObjectPath : NSObject
 
-+ (CObjectPath *)objectPathWithFormat:(NSString *)format argumentArray:(NSArray *)arguments;
-//+ (CObjectPath *)objectPathWithFormat:(NSString *)format, ...;
-//+ (CObjectPath *)objectPathWithFormat:(NSString *)format arguments:(va_list)argList;
+- (id)initWithFormat:(NSString *)format argumentArray:(NSArray *)arguments;
+- (id)initWithFormat:(NSString *)format, ...;
+- (id)initWithFormat:(NSString *)format arguments:(va_list)argList;
 
-- (id)evaluateObject:(id)inObject;
+- (id)evaluateObject:(id)inObject error:(NSError **)outError;
 
 @end
