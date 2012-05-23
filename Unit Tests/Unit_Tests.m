@@ -8,7 +8,7 @@
 
 #import "Unit_Tests.h"
 
-#import "CObjectPath.h"
+#import "CObjectivePath.h"
 
 @implementation Unit_Tests
 
@@ -24,7 +24,7 @@
 
 - (void)testSimple1
     {
-    CObjectPath *thePath = [[CObjectPath alloc] initWithFormat:@"A.B.#0"];
+    CObjectivePath *thePath = [[CObjectivePath alloc] initWithFormat:@"A.B.#0"];
     id theTestData = @{ @"A" : @{ @"B" : @[@"C", @"D"] } };
     id theExpectedResult = @"C";
     NSError *theError = NULL;
@@ -34,7 +34,7 @@
 
 - (void)testSimple2
     {
-    CObjectPath *thePath = [[CObjectPath alloc] initWithFormat:@"A.B.(0,1)"];
+    CObjectivePath *thePath = [[CObjectivePath alloc] initWithFormat:@"A.B.(0,1)"];
     id theTestData = @{ @"A" : @{ @"B" : @[@"C", @"D"] } };
     id theExpectedResult = @[@"C", @"D"];
     NSError *theError = NULL;
@@ -44,7 +44,7 @@
 
 - (void)testSimple3
     {
-    CObjectPath *thePath = [[CObjectPath alloc] initWithFormat:@"(A,C)"];
+    CObjectivePath *thePath = [[CObjectivePath alloc] initWithFormat:@"(A,C)"];
     id theTestData = @{ @"A" : @"a", @"B": @"b", @"C": @"c" };
     id theExpectedResult = @[@"a", @"c"];
     NSError *theError = NULL;
@@ -54,7 +54,7 @@
 
 - (void)testSimple4
     {
-    CObjectPath *thePath = [[CObjectPath alloc] initWithFormat:@"(A,C)"];
+    CObjectivePath *thePath = [[CObjectivePath alloc] initWithFormat:@"(A,C)"];
     id theTestData = @{ @"A" : @"a", @"B": @"b", @"C": @"c" };
     id theExpectedResult = @[@"a", @"c"];
     NSError *theError = NULL;
@@ -64,7 +64,7 @@
 
 - (void)testSimple5
     {
-    CObjectPath *thePath = [[CObjectPath alloc] initWithFormat:@"{ self LIKE[cd] 'a' }"];
+    CObjectivePath *thePath = [[CObjectivePath alloc] initWithFormat:@"{ self LIKE[cd] 'a' }"];
     id theTestData = @[ @"A", @"a", @"B", @"b", @"C", @"c" ];
     NSError *theError = NULL;
     id theResult = [thePath evaluateObject:theTestData error:&theError];
@@ -74,7 +74,7 @@
 
 - (void)testSimple6
     {
-    CObjectPath *thePath = [[CObjectPath alloc] initWithFormat:@"%@", @"A"];
+    CObjectivePath *thePath = [[CObjectivePath alloc] initWithFormat:@"%@", @"A"];
     id theTestData = @{ @"A" : @"a", @"B": @"b", @"C": @"c" };
     NSError *theError = NULL;
     id theResult = [thePath evaluateObject:theTestData error:&theError];

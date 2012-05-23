@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-#import "CObjectPath.h"
+#import "CObjectivePath.h"
 
 int main(int argc, const char * argv[])
     {
     @autoreleasepool
         {
         id theTestData = @[ @"A", @"B", @"C" ];
-        CObjectPath *thePath = [[CObjectPath alloc] initWithFormat:@"%@", [NSNumber numberWithInt:0]];
+        CObjectivePath *thePath = [[CObjectivePath alloc] initWithFormat:@"%@", [NSNumber numberWithInt:0]];
         NSError *theError = NULL;
         id theResult = [thePath evaluateObject:theTestData error:&theError];
 //        id theExpectedResult = @[@"a", @"c"];

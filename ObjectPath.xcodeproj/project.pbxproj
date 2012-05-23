@@ -11,12 +11,12 @@
 		45504E22156C37A500A92687 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45504E21156C37A500A92687 /* Cocoa.framework */; };
 		45504E2C156C37A500A92687 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45504E2A156C37A500A92687 /* InfoPlist.strings */; };
 		45504E2F156C37A500A92687 /* Unit_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45504E2E156C37A500A92687 /* Unit_Tests.m */; };
-		45504E34156C383E00A92687 /* CObjectPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 457142C5156ADFB700B56868 /* CObjectPath.m */; };
+		45504E34156C383E00A92687 /* CObjectivePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 457142C5156ADFB700B56868 /* CObjectivePath.m */; };
 		45504E35156C384300A92687 /* NSScanner+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4598006C156B0E3600FF1760 /* NSScanner+Extensions.m */; };
 		45504E36156C384300A92687 /* NSIndexSet+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F1362D156C06D200E87047 /* NSIndexSet+Extensions.m */; };
 		457142B7156ADFAC00B56868 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 457142B6156ADFAC00B56868 /* Foundation.framework */; };
 		457142BA156ADFAC00B56868 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 457142B9156ADFAC00B56868 /* main.m */; };
-		457142C6156ADFB700B56868 /* CObjectPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 457142C5156ADFB700B56868 /* CObjectPath.m */; };
+		457142C6156ADFB700B56868 /* CObjectivePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 457142C5156ADFB700B56868 /* CObjectivePath.m */; };
 		4598006D156B0E3600FF1760 /* NSScanner+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4598006C156B0E3600FF1760 /* NSScanner+Extensions.m */; };
 		45F1362E156C06D200E87047 /* NSIndexSet+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F1362D156C06D200E87047 /* NSIndexSet+Extensions.m */; };
 /* End PBXBuildFile section */
@@ -49,8 +49,8 @@
 		457142B6156ADFAC00B56868 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		457142B9156ADFAC00B56868 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		457142BC156ADFAC00B56868 /* ObjectPath-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjectPath-Prefix.pch"; sourceTree = "<group>"; };
-		457142C4156ADFB700B56868 /* CObjectPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CObjectPath.h; sourceTree = "<group>"; };
-		457142C5156ADFB700B56868 /* CObjectPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CObjectPath.m; sourceTree = "<group>"; };
+		457142C4156ADFB700B56868 /* CObjectivePath.h */ = {isa = PBXFileReference; fileEncoding = 4; path = CObjectivePath.h; sourceTree = "<group>"; };
+		457142C5156ADFB700B56868 /* CObjectivePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CObjectivePath.m; sourceTree = "<group>"; };
 		4598006B156B0E3600FF1760 /* NSScanner+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSScanner+Extensions.h"; path = "../NSScanner+Extensions.h"; sourceTree = "<group>"; };
 		4598006C156B0E3600FF1760 /* NSScanner+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSScanner+Extensions.m"; path = "../NSScanner+Extensions.m"; sourceTree = "<group>"; };
 		45F1362C156C06D200E87047 /* NSIndexSet+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+Extensions.h"; sourceTree = "<group>"; };
@@ -142,8 +142,8 @@
 			isa = PBXGroup;
 			children = (
 				457142B9156ADFAC00B56868 /* main.m */,
-				457142C4156ADFB700B56868 /* CObjectPath.h */,
-				457142C5156ADFB700B56868 /* CObjectPath.m */,
+				457142C4156ADFB700B56868 /* CObjectivePath.h */,
+				457142C5156ADFB700B56868 /* CObjectivePath.m */,
 				4598006B156B0E3600FF1760 /* NSScanner+Extensions.h */,
 				4598006C156B0E3600FF1760 /* NSScanner+Extensions.m */,
 				45F1362C156C06D200E87047 /* NSIndexSet+Extensions.h */,
@@ -259,7 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45504E2F156C37A500A92687 /* Unit_Tests.m in Sources */,
-				45504E34156C383E00A92687 /* CObjectPath.m in Sources */,
+				45504E34156C383E00A92687 /* CObjectivePath.m in Sources */,
 				45504E35156C384300A92687 /* NSScanner+Extensions.m in Sources */,
 				45504E36156C384300A92687 /* NSIndexSet+Extensions.m in Sources */,
 			);
@@ -270,7 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				457142BA156ADFAC00B56868 /* main.m in Sources */,
-				457142C6156ADFB700B56868 /* CObjectPath.m in Sources */,
+				457142C6156ADFB700B56868 /* CObjectivePath.m in Sources */,
 				4598006D156B0E3600FF1760 /* NSScanner+Extensions.m in Sources */,
 				45F1362E156C06D200E87047 /* NSIndexSet+Extensions.m in Sources */,
 			);
@@ -393,6 +393,7 @@
 				45504E33156C37A500A92687 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		457142AC156ADFAC00B56868 /* Build configuration list for PBXProject "ObjectPath" */ = {
 			isa = XCConfigurationList;
