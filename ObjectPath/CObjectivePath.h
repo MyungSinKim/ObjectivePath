@@ -20,6 +20,7 @@ enum {
 - (id)initWithFormat:(NSString *)format, ...;
 - (id)initWithFormat:(NSString *)format arguments:(va_list)argList;
 
+- (BOOL)compile:(NSError **)outError;
 - (id)evaluateObject:(id)inObject error:(NSError **)outError;
 
 @end

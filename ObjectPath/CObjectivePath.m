@@ -136,7 +136,10 @@ typedef id (^Evaluator)(id value);
 
 - (BOOL)compile:(NSError **)outError
     {
-    self.components = [[self class] componentsForPath:self.format error:outError];
+    if (self.components == NULL)
+        {
+        self.components = [[self class] componentsForPath:self.format error:outError];
+        }
     return(YES);
     }
 
@@ -144,7 +147,10 @@ typedef id (^Evaluator)(id value);
     {
     id theCurrentObject = inObject;
 
-    [self compile:NULL];
+    if ([self compile:outError] == NO)
+        {
+        return(NULL);
+        }
 
     for (NSArray *theComponent in self.components)
         {
