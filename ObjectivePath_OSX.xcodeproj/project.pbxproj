@@ -11,14 +11,14 @@
 		45504E22156C37A500A92687 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45504E21156C37A500A92687 /* Cocoa.framework */; };
 		45504E2C156C37A500A92687 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45504E2A156C37A500A92687 /* InfoPlist.strings */; };
 		45504E2F156C37A500A92687 /* Unit_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45504E2E156C37A500A92687 /* Unit_Tests.m */; };
-		45504E34156C383E00A92687 /* CObjectivePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 457142C5156ADFB700B56868 /* CObjectivePath.m */; };
-		45504E35156C384300A92687 /* NSScanner+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4598006C156B0E3600FF1760 /* NSScanner+Extensions.m */; };
-		45504E36156C384300A92687 /* NSIndexSet+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F1362D156C06D200E87047 /* NSIndexSet+Extensions.m */; };
 		457142B7156ADFAC00B56868 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 457142B6156ADFAC00B56868 /* Foundation.framework */; };
-		457142BA156ADFAC00B56868 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 457142B9156ADFAC00B56868 /* main.m */; };
-		457142C6156ADFB700B56868 /* CObjectivePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 457142C5156ADFB700B56868 /* CObjectivePath.m */; };
-		4598006D156B0E3600FF1760 /* NSScanner+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4598006C156B0E3600FF1760 /* NSScanner+Extensions.m */; };
-		45F1362E156C06D200E87047 /* NSIndexSet+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F1362D156C06D200E87047 /* NSIndexSet+Extensions.m */; };
+		45D809F5156D564D004ECA28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D809F3156D564D004ECA28 /* main.m */; };
+		45D809FD156D5656004ECA28 /* CObjectivePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D809F8156D5656004ECA28 /* CObjectivePath.m */; };
+		45D809FE156D5656004ECA28 /* CObjectivePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D809F8156D5656004ECA28 /* CObjectivePath.m */; };
+		45D809FF156D5656004ECA28 /* NSIndexSet+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D809FA156D5656004ECA28 /* NSIndexSet+Extensions.m */; };
+		45D80A00156D5656004ECA28 /* NSIndexSet+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D809FA156D5656004ECA28 /* NSIndexSet+Extensions.m */; };
+		45D80A01156D5656004ECA28 /* NSScanner+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D809FC156D5656004ECA28 /* NSScanner+Extensions.m */; };
+		45D80A02156D5656004ECA28 /* NSScanner+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D809FC156D5656004ECA28 /* NSScanner+Extensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,16 +45,16 @@
 		45504E2D156C37A500A92687 /* Unit_Tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Unit_Tests.h; sourceTree = "<group>"; };
 		45504E2E156C37A500A92687 /* Unit_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Unit_Tests.m; sourceTree = "<group>"; };
 		45504E30156C37A500A92687 /* Unit Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Unit Tests-Prefix.pch"; sourceTree = "<group>"; };
-		457142B2156ADFAC00B56868 /* ObjectPath */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ObjectPath; sourceTree = BUILT_PRODUCTS_DIR; };
+		457142B2156ADFAC00B56868 /* ObjectivePath_CLI_Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ObjectivePath_CLI_Test; sourceTree = BUILT_PRODUCTS_DIR; };
 		457142B6156ADFAC00B56868 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		457142B9156ADFAC00B56868 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		457142BC156ADFAC00B56868 /* ObjectPath-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjectPath-Prefix.pch"; sourceTree = "<group>"; };
-		457142C4156ADFB700B56868 /* CObjectivePath.h */ = {isa = PBXFileReference; fileEncoding = 4; path = CObjectivePath.h; sourceTree = "<group>"; };
-		457142C5156ADFB700B56868 /* CObjectivePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CObjectivePath.m; sourceTree = "<group>"; };
-		4598006B156B0E3600FF1760 /* NSScanner+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSScanner+Extensions.h"; path = "../NSScanner+Extensions.h"; sourceTree = "<group>"; };
-		4598006C156B0E3600FF1760 /* NSScanner+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSScanner+Extensions.m"; path = "../NSScanner+Extensions.m"; sourceTree = "<group>"; };
-		45F1362C156C06D200E87047 /* NSIndexSet+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+Extensions.h"; sourceTree = "<group>"; };
-		45F1362D156C06D200E87047 /* NSIndexSet+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexSet+Extensions.m"; sourceTree = "<group>"; };
+		45D809F3156D564D004ECA28 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		45D809F4156D564D004ECA28 /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
+		45D809F7156D5656004ECA28 /* CObjectivePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CObjectivePath.h; sourceTree = "<group>"; };
+		45D809F8156D5656004ECA28 /* CObjectivePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CObjectivePath.m; sourceTree = "<group>"; };
+		45D809F9156D5656004ECA28 /* NSIndexSet+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+Extensions.h"; sourceTree = "<group>"; };
+		45D809FA156D5656004ECA28 /* NSIndexSet+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexSet+Extensions.m"; sourceTree = "<group>"; };
+		45D809FB156D5656004ECA28 /* NSScanner+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSScanner+Extensions.h"; sourceTree = "<group>"; };
+		45D809FC156D5656004ECA28 /* NSScanner+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSScanner+Extensions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +111,8 @@
 		457142A7156ADFAC00B56868 = {
 			isa = PBXGroup;
 			children = (
-				457142B8156ADFAC00B56868 /* ObjectPath */,
+				45D809F6156D5656004ECA28 /* Source */,
+				45D809F2156D564D004ECA28 /* CLI Test */,
 				45504E27156C37A500A92687 /* Unit Tests */,
 				457142B5156ADFAC00B56868 /* Frameworks */,
 				457142B3156ADFAC00B56868 /* Products */,
@@ -121,7 +122,7 @@
 		457142B3156ADFAC00B56868 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				457142B2156ADFAC00B56868 /* ObjectPath */,
+				457142B2156ADFAC00B56868 /* ObjectivePath_CLI_Test */,
 				45504E1E156C37A500A92687 /* Unit Tests.octest */,
 			);
 			name = Products;
@@ -138,27 +139,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		457142B8156ADFAC00B56868 /* ObjectPath */ = {
+		45D809F2156D564D004ECA28 /* CLI Test */ = {
 			isa = PBXGroup;
 			children = (
-				457142B9156ADFAC00B56868 /* main.m */,
-				457142C4156ADFB700B56868 /* CObjectivePath.h */,
-				457142C5156ADFB700B56868 /* CObjectivePath.m */,
-				4598006B156B0E3600FF1760 /* NSScanner+Extensions.h */,
-				4598006C156B0E3600FF1760 /* NSScanner+Extensions.m */,
-				45F1362C156C06D200E87047 /* NSIndexSet+Extensions.h */,
-				45F1362D156C06D200E87047 /* NSIndexSet+Extensions.m */,
-				457142BB156ADFAC00B56868 /* Supporting Files */,
+				45D809F3156D564D004ECA28 /* main.m */,
+				45D809F4156D564D004ECA28 /* Prefix.pch */,
 			);
-			path = ObjectPath;
+			path = "CLI Test";
 			sourceTree = "<group>";
 		};
-		457142BB156ADFAC00B56868 /* Supporting Files */ = {
+		45D809F6156D5656004ECA28 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				457142BC156ADFAC00B56868 /* ObjectPath-Prefix.pch */,
+				45D809F7156D5656004ECA28 /* CObjectivePath.h */,
+				45D809F8156D5656004ECA28 /* CObjectivePath.m */,
+				45D809F9156D5656004ECA28 /* NSIndexSet+Extensions.h */,
+				45D809FA156D5656004ECA28 /* NSIndexSet+Extensions.m */,
+				45D809FB156D5656004ECA28 /* NSScanner+Extensions.h */,
+				45D809FC156D5656004ECA28 /* NSScanner+Extensions.m */,
 			);
-			name = "Supporting Files";
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,9 +182,9 @@
 			productReference = 45504E1E156C37A500A92687 /* Unit Tests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
-		457142B1156ADFAC00B56868 /* ObjectPath */ = {
+		457142B1156ADFAC00B56868 /* CLI Test */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 457142C1156ADFAC00B56868 /* Build configuration list for PBXNativeTarget "ObjectPath" */;
+			buildConfigurationList = 457142C1156ADFAC00B56868 /* Build configuration list for PBXNativeTarget "CLI Test" */;
 			buildPhases = (
 				457142AE156ADFAC00B56868 /* Sources */,
 				457142AF156ADFAC00B56868 /* Frameworks */,
@@ -194,9 +194,9 @@
 			);
 			dependencies = (
 			);
-			name = ObjectPath;
+			name = "CLI Test";
 			productName = ObjectPath;
-			productReference = 457142B2156ADFAC00B56868 /* ObjectPath */;
+			productReference = 457142B2156ADFAC00B56868 /* ObjectivePath_CLI_Test */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -208,7 +208,7 @@
 				LastUpgradeCheck = 0440;
 				ORGANIZATIONNAME = "Jonathan Wight";
 			};
-			buildConfigurationList = 457142AC156ADFAC00B56868 /* Build configuration list for PBXProject "ObjectPath" */;
+			buildConfigurationList = 457142AC156ADFAC00B56868 /* Build configuration list for PBXProject "ObjectivePath_OSX" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -220,7 +220,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				457142B1156ADFAC00B56868 /* ObjectPath */,
+				457142B1156ADFAC00B56868 /* CLI Test */,
 				45504E1D156C37A500A92687 /* Unit Tests */,
 			);
 		};
@@ -259,9 +259,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				45504E2F156C37A500A92687 /* Unit_Tests.m in Sources */,
-				45504E34156C383E00A92687 /* CObjectivePath.m in Sources */,
-				45504E35156C384300A92687 /* NSScanner+Extensions.m in Sources */,
-				45504E36156C384300A92687 /* NSIndexSet+Extensions.m in Sources */,
+				45D809FE156D5656004ECA28 /* CObjectivePath.m in Sources */,
+				45D80A00156D5656004ECA28 /* NSIndexSet+Extensions.m in Sources */,
+				45D80A02156D5656004ECA28 /* NSScanner+Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,10 +269,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				457142BA156ADFAC00B56868 /* main.m in Sources */,
-				457142C6156ADFB700B56868 /* CObjectivePath.m in Sources */,
-				4598006D156B0E3600FF1760 /* NSScanner+Extensions.m in Sources */,
-				45F1362E156C06D200E87047 /* NSIndexSet+Extensions.m in Sources */,
+				45D809F5156D564D004ECA28 /* main.m in Sources */,
+				45D809FD156D5656004ECA28 /* CObjectivePath.m in Sources */,
+				45D809FF156D5656004ECA28 /* NSIndexSet+Extensions.m in Sources */,
+				45D80A01156D5656004ECA28 /* NSScanner+Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,8 +369,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ObjectPath/ObjectPath-Prefix.pch";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "CLI Test/Prefix.pch";
+				PRODUCT_NAME = ObjectivePath_CLI_Test;
 			};
 			name = Debug;
 		};
@@ -378,8 +378,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ObjectPath/ObjectPath-Prefix.pch";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "CLI Test/Prefix.pch";
+				PRODUCT_NAME = ObjectivePath_CLI_Test;
 			};
 			name = Release;
 		};
@@ -395,7 +395,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		457142AC156ADFAC00B56868 /* Build configuration list for PBXProject "ObjectPath" */ = {
+		457142AC156ADFAC00B56868 /* Build configuration list for PBXProject "ObjectivePath_OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				457142BF156ADFAC00B56868 /* Debug */,
@@ -404,7 +404,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		457142C1156ADFAC00B56868 /* Build configuration list for PBXNativeTarget "ObjectPath" */ = {
+		457142C1156ADFAC00B56868 /* Build configuration list for PBXNativeTarget "CLI Test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				457142C2156ADFAC00B56868 /* Debug */,
