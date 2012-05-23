@@ -16,14 +16,19 @@ NSString *const kObjectivePathErrorDomain = @"ObjectPathErrorDomain";
 typedef id (^Evaluator)(id value);
 
 @interface CObjectivePath ()
-@property (readwrite, nonatomic, strong) NSString *format;
-@property (readwrite, nonatomic, strong) NSArray *arguments;
 @property (readwrite, nonatomic, strong) NSArray *components;
 @end
 
 #pragma mark -
 
 @implementation CObjectivePath
+
++ (NSSet *)keyPathsForValuesAffectingCompiled
+    {
+    return([NSSet setWithObject:@"components"]);
+    }
+
+#pragma mark -
 
 - (id)initWithFormat:(NSString *)format argumentArray:(NSArray *)arguments
     {
@@ -72,6 +77,13 @@ typedef id (^Evaluator)(id value);
         _components = theComponents;
         }
     return(self);
+    }
+
+#pragma mark - 
+
+- (BOOL)compiled
+    {
+    return(self.components != NULL);
     }
 
 #pragma mark -
