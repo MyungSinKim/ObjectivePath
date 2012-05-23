@@ -74,7 +74,6 @@ typedef id (^Evaluator)(id value);
     return(self);
     }
 
-
 #pragma mark -
 
 + (NSArray *)componentsForPath:(NSString *)inPath error:(NSError **)outError
@@ -179,7 +178,6 @@ typedef id (^Evaluator)(id value);
     NSString *theComponentType = inComponent[0];
     id theComponentValue = inComponent[1];
 
-    
     if ([theComponentType isEqualToString:@"argument"] == YES)
         {
         theComponentValue = [self.arguments objectAtIndex:[theComponentValue integerValue]];
@@ -226,14 +224,5 @@ typedef id (^Evaluator)(id value);
 
     return(theEvaluator);
     }
-
-#pragma mark -
-
-- (NSArray *)pathComponents
-    {
-    // This isn't good enough but will do for now.
-    return([self.format componentsSeparatedByString:@"."]);
-    }
-
 
 @end
