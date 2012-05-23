@@ -172,6 +172,8 @@ typedef id (^Evaluator)(id value);
 
     NSString *theComponentType = inComponent[0];
     id theComponentValue = inComponent[1];
+
+    
     if ([theComponentType isEqualToString:@"argument"] == YES)
         {
         theComponentValue = [self.arguments objectAtIndex:[theComponentValue integerValue]];
@@ -213,8 +215,6 @@ typedef id (^Evaluator)(id value);
 
     Evaluator theEvaluator = ^(id value)
         {
-
-
         return(theBlock(theComponentValue, value));
         };
 

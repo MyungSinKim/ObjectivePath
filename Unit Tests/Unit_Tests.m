@@ -24,40 +24,64 @@
 
 - (void)testSimple1
     {
-    NSDictionary *theTestData = @{ @"A" : @{ @"B" : @[@"C", @"D"] } };
-    CObjectPath *thePath = [[CObjectPath alloc] initWithFormat:@"A.B.#0" argumentArray:NULL];
-    id theResult = [thePath evaluateObject:theTestData error:NULL];
+    CObjectPath *thePath = [[CObjectPath alloc] initWithFormat:@"A.B.#0"];
+    id theTestData = @{ @"A" : @{ @"B" : @[@"C", @"D"] } };
     id theExpectedResult = @"C";
+    NSError *theError = NULL;
+    id theResult = [thePath evaluateObject:theTestData error:&theError];
     STAssertEqualObjects(theResult, theExpectedResult, @"TODO_DESCRIPTION");
     }
 
 - (void)testSimple2
     {
-    NSDictionary *theTestData = @{ @"A" : @{ @"B" : @[@"C", @"D"] } };
-    CObjectPath *thePath = [[CObjectPath alloc] initWithFormat:@"A.B.(0,1)" argumentArray:NULL];
-    id theResult = [thePath evaluateObject:theTestData error:NULL];
+    CObjectPath *thePath = [[CObjectPath alloc] initWithFormat:@"A.B.(0,1)"];
+    id theTestData = @{ @"A" : @{ @"B" : @[@"C", @"D"] } };
     id theExpectedResult = @[@"C", @"D"];
+    NSError *theError = NULL;
+    id theResult = [thePath evaluateObject:theTestData error:&theError];
     STAssertEqualObjects(theResult, theExpectedResult, @"TODO_DESCRIPTION");
     }
 
 - (void)testSimple3
     {
-    NSDictionary *theTestData = @{ @"A" : @"a", @"B": @"b", @"C": @"c" };
-    CObjectPath *thePath = [[CObjectPath alloc] initWithFormat:@"(A,C)" argumentArray:NULL];
-    id theResult = [thePath evaluateObject:theTestData error:NULL];
+    CObjectPath *thePath = [[CObjectPath alloc] initWithFormat:@"(A,C)"];
+    id theTestData = @{ @"A" : @"a", @"B": @"b", @"C": @"c" };
     id theExpectedResult = @[@"a", @"c"];
+    NSError *theError = NULL;
+    id theResult = [thePath evaluateObject:theTestData error:&theError];
     STAssertEqualObjects(theResult, theExpectedResult, @"TODO_DESCRIPTION");
     }
 
 - (void)testSimple4
     {
-    NSDictionary *theTestData = @{ @"A" : @"a", @"B": @"b", @"C": @"c" };
-    CObjectPath *thePath = [[CObjectPath alloc] initWithFormat:@"(A,C)" argumentArray:NULL];
+    CObjectPath *thePath = [[CObjectPath alloc] initWithFormat:@"(A,C)"];
+    id theTestData = @{ @"A" : @"a", @"B": @"b", @"C": @"c" };
+    id theExpectedResult = @[@"a", @"c"];
     NSError *theError = NULL;
     id theResult = [thePath evaluateObject:theTestData error:&theError];
-    id theExpectedResult = @[@"a", @"c"];
     STAssertEqualObjects(theResult, theExpectedResult, @"TODO_DESCRIPTION");
     }
+
+- (void)testSimple5
+    {
+    CObjectPath *thePath = [[CObjectPath alloc] initWithFormat:@"{ self LIKE[cd] 'a' }"];
+    id theTestData = @[ @"A", @"a", @"B", @"b", @"C", @"c" ];
+    NSError *theError = NULL;
+    id theResult = [thePath evaluateObject:theTestData error:&theError];
+    id theExpectedResult = @[@"A", @"a"];
+    STAssertEqualObjects(theResult, theExpectedResult, @"TODO_DESCRIPTION");
+    }
+
+- (void)testSimple6
+    {
+    CObjectPath *thePath = [[CObjectPath alloc] initWithFormat:@"%@", @"A"];
+    id theTestData = @{ @"A" : @"a", @"B": @"b", @"C": @"c" };
+    NSError *theError = NULL;
+    id theResult = [thePath evaluateObject:theTestData error:&theError];
+    id theExpectedResult = @"a";
+    STAssertEqualObjects(theResult, theExpectedResult, @"TODO_DESCRIPTION");
+    }
+
 
 
 @end
